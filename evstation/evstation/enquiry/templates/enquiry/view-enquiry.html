@@ -1,0 +1,65 @@
+{% extends 'temp/service-centerext.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Service center</title>
+<style>
+    .wallet-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.table4 {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.table4 th,
+.table4 td {
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.table4 th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.table4 tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table4 tr:hover {
+  background-color: #f2f2f2;
+}
+</style>
+
+  </head>
+  <body>
+<div class="wallet-details" align="center">
+<table class="table4" cellpadding="5">
+  <tr>
+    <th>Username</th>
+    <th>Enquiry</th>
+    <th>Reply</th>
+  </tr>
+  {% for i in o %}
+    <tr>
+      <td>{{ i.u.name }}</td>
+      <td>{{ i.enquiry }}</td>
+      <td><a href="{% url 'res' idd=i.en_id %}">Reply</a></td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+
+  </body>
+</html>
+
+{% endblock %}

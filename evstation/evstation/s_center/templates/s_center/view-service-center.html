@@ -1,0 +1,39 @@
+{% extends 'temp/adminnext.html' %}
+{% block base %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Service center</title>
+
+
+  </head>
+  <body>
+    <center>
+      <h1>View Service center</h1>
+      <br /><br />
+      <table border="1" cellpadding="5px" cellspacing="0">
+        <tr>
+          <th>Username</th>
+          <th>location</th>
+          <th>Available Services</th>
+          <th>Phone</th>
+          <th>Email</th>
+        </tr>
+          {% for i in l %}
+
+        <tr>
+          <td>{{ i.username }}</td>
+          <td>{{ i.location }}</td>
+          <td>{{ i.service_available }}</td>
+          <td>{{ i.phone }}</td>
+          <td>{{ i.email }}</td>
+        </tr>
+          {% endfor %}
+
+      </table>
+    </center>
+  </body>
+</html>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'temp/userext.html' %}
+
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enquire about Service Center Information</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+      .enquirediv {
+    padding: 20px;
+    border: 1px solid #ccc;
+    {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+          background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    color: white;
+    animation-name: slidein;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Rest of the styles */
+  /* Add some padding and a border to the form */
+  .enquirediv {
+    padding: 20px;
+    border: 1px solid #ccc;
+background-color: rgba(0,0,0,0.5);
+      border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+      color: white;
+  }
+  h2{
+      color:white;
+  }
+
+  /* Style the textarea */
+  textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    resize: none;
+      background-color: rgba(255,255,255,0.3);
+  }
+
+  input[type="submit"] {
+      width: 180px;
+  }
+
+
+
+  /* Style the form for smaller screens */
+  @media screen and (max-width: 600px) {
+    form {
+      max-width: 90%;
+    }
+  }
+</style>
+  </head>
+  <body>
+  <div align="center">
+    <div class="enquirediv">
+      <h2>Input your concerns</h2><br>
+      <form name="" method="POST">
+          {% csrf_token %}
+        <table>
+          <tr>
+              <td><label for="enquiry-text">Enter your complaints here!</label></td></tr>
+           <tr> <td><textarea id="enquiry-text" name="complaint"></textarea></td>
+          </tr>
+
+        </table>
+          <input class="btn btn-primary py-md-3 px-md-5 mt-2" type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  </body>
+</html>
+{% endblock %}

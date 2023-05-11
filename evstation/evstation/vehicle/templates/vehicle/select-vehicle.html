@@ -1,0 +1,66 @@
+{% extends 'temp/userext.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Vehicle</title>
+    <style>
+
+
+
+        body{
+            color: white;
+        }
+
+        h1{
+        color: #F77D0A;
+    }
+
+        select{
+            {#border-radius: 25px;#}
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        padding: 10px;
+        margin: 5px;
+        outline-width: 0;
+        color: white;
+        {#opacity: 0.4;#}
+        }
+        select:focus{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<center>
+
+    <h1>
+        Select Vehicle
+    </h1>
+    <form name="" method="post">
+        <table>
+            <tr>
+                <td>Select Vehicle Brand</td>
+                <td><select name="vehicle-brand" required="">
+                    <option>Ather</option>
+                    <option>Ola</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Select Vehicle Model</td>
+                <td><select name="vehicle-model" required="">
+                    <option>A1</option>
+                    <option>A2</option>
+                </select></td>
+            </tr>
+        </table><br>
+        <input class="btn btn-primary py-md-3 px-md-5 mt-2" type="submit" value="Submit">
+    </form>
+
+</center>
+</body>
+</html>
+
+{% endblock %}

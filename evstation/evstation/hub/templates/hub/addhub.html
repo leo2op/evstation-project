@@ -1,0 +1,36 @@
+{% extends 'temp/stationext.html' %}
+{% block base %}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+  </head>
+  <body>
+    <center>
+      <h1>Add Hub</h1>
+      <br />
+      <form method="post">
+          {% csrf_token %}
+        <table border="1px" cellpadding="10px" cellspacing="0">
+          <tr>
+            <td>Update Units</td>
+            <td><input type="text" name="u" id="" required=""/></td>
+          </tr>
+
+      
+        </table><br>
+        <input class="btn btn-primary py-md-3 px-md-5 mt-2" type="submit" value="Add" /></td>
+      </form>
+    </center>
+  </body>
+</html>
+{% endblock %}

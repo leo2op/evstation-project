@@ -1,0 +1,110 @@
+{% extends 'temp/stationext.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Wallet</title>
+<style>
+
+
+        h2{
+        color: #F77D0A ;
+            margin: 10px;
+    }
+
+
+
+.wallet-details h3 {
+    margin-bottom: 20px;
+}
+
+.wallet-details table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.wallet-details td {
+    border-bottom: 1px solid #ebebeb;
+    padding: 10px 5px;
+}
+
+.wallet-details td:first-child {
+    width: 40%;
+}
+
+.wallet-details td:last-child {
+    text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+    .wallet-details td {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .wallet-details td:first-child {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .wallet-details td:last-child {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+}
+
+
+                .wallet-details {
+    padding: 100px;
+                    color: white;
+    {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+background-color: rgb(43,46,76);
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+
+    animation-name: slidein;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+</style>
+  </head>
+  <body>
+<div class="wallet-details" align="center">
+    <h2>Wallet Details</h2>
+    <table>
+        <tr>
+            {% for i in u %}
+            <td><strong>Station name:</strong></td>
+            <td>{{ i.s.s_name }}</td>
+        </tr>
+        <tr>
+            <td><strong>Balance:</strong></td>
+            <td>{{ i.bal }}</td>
+        </tr>
+                {% endfor %}
+
+    </table>
+</div>
+
+
+
+  </body>
+</html>
+
+
+{% endblock %}

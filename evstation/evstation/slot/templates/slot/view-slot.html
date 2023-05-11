@@ -1,0 +1,35 @@
+{% extends 'temp/stationext.html' %}
+{% block base %}
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Slot</title>
+
+  </head>
+  <body>
+    <center>
+      <h1>Available Slots</h1>
+      <br />
+      <table border="1" cellpadding="10" cellspacing="0px">
+        <tr>
+            <th>Slot ID</th>
+          <th>Username</th>
+
+          <th>Time</th>
+        </tr>
+          {% for i in m %}
+       <tr>
+           <td>{{ i.u_id }}</td>
+           <td></td>
+       <td>{{ i.start_time }}</td>
+        </tr>
+          {% endfor %}
+      </table>
+    </center>
+  </body>
+</html>
+{% endblock %}

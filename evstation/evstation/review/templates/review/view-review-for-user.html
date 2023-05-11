@@ -1,0 +1,47 @@
+{% extends 'temp/userext.html' %}
+{% block base %}
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Reviews</title>
+    <style>
+    body{
+            color: white;
+        }
+
+        h1{
+        color: #F77D0A;
+    }
+</style>
+  </head>
+  <body>
+<div align="center">
+      <h1>Reviews</h1>
+      <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+          <th>Username</th>
+          <th>Review</th>
+          <th>Time</th>
+        </tr>
+          {% for i in k %}
+
+        <tr>
+          <td>{{ i.u }}</td>
+          <td>{{ i.review }}</td>
+          <td>{{ i.time }}</td>
+        </tr>
+          {% endfor %}
+      </table>
+    </div>
+
+
+
+  </body>
+</html>
+{% endblock %}

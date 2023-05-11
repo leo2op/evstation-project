@@ -1,0 +1,84 @@
+{% extends 'temp/adminext.html' %}
+{% block base %}
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Reviews</title>
+      <style>
+  body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+  }
+
+  table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 2px solid #e9e9e9;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: #333;
+  }
+
+  th {
+    background-color: #e9e9e9;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+  }
+
+  tbody tr {
+    transition: background-color 0.2s ease;
+  }
+
+  tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+
+</style>
+  </head>
+<body>
+  <h1>Reviews</h1>
+  <table>
+    <tr>
+      <th>Username</th>
+              <th>Station Id</th>
+      <th>Review</th>
+      <th>Time</th>
+    </tr>
+    {% for i in k %}
+    <tr>
+      <td>{{ i.u.name }}</td>
+        <td>{{ i.s_id }}</td>
+      <td>{{ i.review }}</td>
+      <td>{{ i.time }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
+{% endblock %}

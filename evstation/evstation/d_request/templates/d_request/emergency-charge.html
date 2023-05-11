@@ -1,0 +1,98 @@
+{% extends 'temp/userext.html' %}
+
+{% block base %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emergency Charge</title>
+    <style>
+
+
+                .emergency-charge {
+    padding: 20px;
+    border: 1px solid #ccc;
+    {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+                    background-color: rgba(0,0,0,0.5);
+
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+
+    animation-name: slidein;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+        .emergency-charge {
+            margin-top: 70px;
+            {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+            background-color: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 30px;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+        label {
+            font-family:monospace;
+            display: block;
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: white;
+        }
+        input[type="text"],
+        select {
+            background-color: rgba(255,255,255,0.3);
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="emergency-charge">
+        <h1>Fast charge ⚡ </h1>
+        <form name="" method="post">
+            {% csrf_token %}
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required="">
+            <label for="type">Type:</label>
+            <select name="type" id="type" required="">
+                <option>Portable Charger</option>
+                <option>Swappable Battery</option>
+            </select>
+            <input class="btn btn-primary py-md-3 px-md-5 mt-2" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}

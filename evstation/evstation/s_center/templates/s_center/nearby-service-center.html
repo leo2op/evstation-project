@@ -1,0 +1,115 @@
+{% extends 'temp/userext.html' %}
+
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Service center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .wallet-details{
+            background-color: rgba(0,0,0,0.6);
+            border-radius: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          margin: 20px auto;
+          max-width: 800px;
+          padding: 20px;
+          text-align: center;
+        }
+      table {
+          color: white;
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      th, td {
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      tr:nth-child(even) {
+
+      }
+
+      a {
+        color: #F77D0A;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive styles for mobile screens */
+      @media screen and (max-width: 767px) {
+        th, td {
+          display: block;
+          width: 100%;
+        }
+
+        th {
+          text-align: center;
+        }
+
+        td {
+          text-align: left;
+          border-bottom: none;
+        }
+
+
+        td:before {
+          content: attr(data-label);
+          font-weight: bold;
+          text-transform: uppercase;
+          display: block;
+          margin-bottom: 5px;
+        }
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="wallet-details" align="center">
+      <form method="post">
+        <table>
+    {#          <thead>#}
+    {#            <tr>#}
+    {#              <th>Name</th>#}
+    {#              <th>Location</th>#}
+    {#              <th>Services available</th>#}
+    {#              <th>Phone</th>#}
+    {#              <th>Opening Hours</th>#}
+    {#              <th>Status</th>#}
+    {#              <th>Enquire</th>#}
+    {#            </tr>#}
+    {#          </thead>#}
+          <tbody>
+            {% for i in l %}
+              <tr>
+                <td data-label="Name">{{ i.sc_name }}</td>
+                <td data-label="Location">{{ i.location }}</td>
+                <td data-label="Services available">{{ i.service_available }}</td>
+                <td data-label="Phone">{{ i.phone }}</td>
+                <td data-label="Opening Hours">{{ i.operating_hours }}</td>
+                <td data-label="Status">{{ i.status }}</td>
+                <td data-label=""><a class="btn btn-primary py-md-3 px-md-5 mt-2" href="{% url 'en' idd=i.sc_id uid=a %}">Enquire</a></td>
+
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

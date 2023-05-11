@@ -1,0 +1,127 @@
+{% extends 'temp/stationext.html' %}
+{% block base %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+      <style>
+
+
+        h2{
+        color: #F77D0A;
+    }
+
+.wallet-details {
+    padding: 100px;
+                    color: white;
+    {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+background-color: rgba(43,46,76,0.9);
+    border-radius: 10px;
+    max-width: 700px;
+    margin: auto;
+
+    animation-name: slidein;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+.wallet-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.wallet-details table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.wallet-details td {
+    font-size: 1.2em;
+    padding: 10px 5px;
+}
+
+.wallet-details td:first-child {
+    font-weight: bold;
+    width: 40%;
+}
+
+.wallet-details td:last-child {
+    text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+    .wallet-details td {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .wallet-details td:first-child {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .wallet-details td:last-child {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="wallet-details" align="center">
+      <h2>Battery units available</h2>
+      <br />
+      <form method="post">
+
+        <table cellpadding="10px" cellspacing="0">
+        <tr>
+            {% for i in p %}
+            <td><strong>Station:</strong></td>
+            <td>{{ i.s.s_name }}</td>
+        </tr>
+                <tr>  <td><strong>Location:</strong></td>
+            <td>{{ i.s.location }}</td>
+        </tr>
+        <tr>
+            <td><strong>Units left:</strong></td>
+            <td>{{ i.units_left }}</td>
+        </tr>
+                <tr>
+             <td></td>   <td><a  href="{% url 'ud' idd=i.h_id %}">Update</a> </td>
+                </tr>
+
+        {% endfor %}
+
+
+
+        </table><br>
+       <tr>
+                <td><a class="btn btn-primary py-md-3 px-md-5 mt-2" href="/hub/add/">Add Hub</a> </td>
+                </tr>
+
+      </form>
+    </div>
+  </body>
+{% endblock %}

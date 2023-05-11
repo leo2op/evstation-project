@@ -1,0 +1,106 @@
+{% extends 'temp/dboy.html' %}
+{% block base %}
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Delivery requests</title>
+
+         <style>
+
+
+        h2{
+        color: #F77D0A;
+    }
+
+.wallet-details {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+
+.wallet-details h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.wallet-details table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.wallet-details td {
+    border-bottom: 1px solid #ebebeb;
+    font-size: 1.2em;
+    padding: 10px 5px;
+}
+
+.wallet-details td:first-child {
+    font-weight: bold;
+    width: 40%;
+}
+
+.wallet-details td:last-child {
+    text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+    .wallet-details td {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .wallet-details td:first-child {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .wallet-details td:last-child {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="wallet-details" align="center">
+        <h1>
+            View Requests
+        </h1><br>
+      <form method="post">
+          {% csrf_token %}
+             <table cellpadding="10px" cellspacing="0">
+        <tr>
+            {% for i in o %}
+
+        <tr>
+            <td><strong>Location:</strong></td>
+            <td>{{ i.location }}</td>
+        </tr>
+
+
+                        <tr>
+            <td><strong>Type:</strong></td>
+            <td>{{ i.type }}</td>
+
+<tr><td><a href="{% url 'comp' idd=i.work_id %}">Completed</a> </td></tr>
+        {% endfor %}
+            </table>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

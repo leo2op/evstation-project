@@ -1,0 +1,89 @@
+{% extends 'temp/service-centerext.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update View Service center</title>
+ <style>
+      .div1 {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 0.25rem;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+          width: 500px;
+
+      }
+
+      .table1 {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .table1 td,
+      .table1 th {
+        padding: 1rem;
+        border: none;
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .table1 th {
+        background-color: #f2f2f2;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.8rem;
+      }
+
+      .table1 td {
+        font-size: 1.1rem;
+      }
+
+      .table1 a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #fff;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .table1 a:hover {
+        background-color: #0069d9;
+      }
+    </style>
+
+  </head>
+  <body>
+  <div align="center">
+    <div class="div1">
+        <table class="table1" border="1" cellpadding="5px" cellspacing="0">
+            <tr>
+            <td>Available service</td>
+            </tr>
+            {% for i in l %}
+            <tr>
+            <td>{{ i.service_available }}</td>
+            <td><a href="{% url 'go' idd=i.sc_id %}">Go</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+  </div>
+      </div>
+  </body>
+</html>
+
+{% endblock %}

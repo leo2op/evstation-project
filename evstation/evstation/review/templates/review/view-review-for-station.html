@@ -1,0 +1,93 @@
+{% extends 'temp/stationext.html' %}
+
+{% block base %}
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>View Reviews</title>
+        <style>
+/* style.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 1000px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+    color:black;
+}
+
+th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 600px) {
+  .table {
+    width: 100%;
+  }
+}
+
+
+        </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1 class="title">Feedbacks</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Review</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in k %}
+              <tr>
+                <td>{{ i.u.username }}</td>
+                <td>{{ i.review }}</td>
+                <td>{{ i.time }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </body>
+  </html>
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'temp/adminext.html' %}
+{% block base %}
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Complaints</title>
+
+      <style>
+.complaints-table {
+  width: 80%;
+  border-collapse: collapse;
+  border: 2px solid #e9e9e9;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.complaints-table th, .complaints-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.complaints-table th {
+  background-color: #e9e9e9;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.complaints-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.complaints-table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.complaints-table td {
+  vertical-align: middle;
+}
+
+.complaints-table a {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.complaints-table a:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 600px) {
+  .complaints-table {
+    border: 0;
+    font-size: 12px;
+  }
+  .complaints-table thead {
+    display: none;
+  }
+  .complaints-table td {
+    display: block;
+    padding: 8px 15px;
+    text-align: right;
+  }
+  .complaints-table td::before {
+    content: attr(data-label);
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .complaints-table tbody tr {
+    margin-bottom: 10px;
+  }
+}
+</style>
+
+
+  </head>
+  <body>
+  <div align="center">
+      <h1>Complaints</h1>
+      <br />
+ <table class="complaints-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Complaint</th>
+            <th>Time</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in h %}
+        <tr>
+            <td data-label="Name">{{ i.u.name }}</td>
+            <td data-label="Complaint">{{ i.complaint }}</td>
+            <td data-label="Time">{{ i.time }}</td>
+            <td data-label="">
+                <a href="{% url 'reply' idd=i.c_id %}">Reply</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+  </div>
+  </body>
+
+</html>
+{% endblock %}

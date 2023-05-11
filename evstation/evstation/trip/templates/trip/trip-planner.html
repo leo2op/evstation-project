@@ -1,0 +1,40 @@
+{% extends 'temp/userext.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EV Trip Planner</title>
+    <style>
+body{
+            color: white;
+        }
+
+        h1{
+        color: #F77D0A;
+    }
+    </style>
+</head>
+<body>
+<center>
+    <h1>EV Trip Planner</h1><br>
+
+    <form>
+    <table>
+        <tr>
+            <td>Starting Location</td>
+            <td><input type="text" name="start-location" required=""></td>
+        </tr>
+        <tr>
+            <td>Destination </td>
+            <td><input type="text" name="stop-location" required=""></td>
+        </tr>
+    </table><br>
+    <input class="btn btn-primary py-md-3 px-md-5 mt-2" type="submit" value="Check">
+        </form>
+</center>
+</body>
+</html>
+
+{% endblock %}

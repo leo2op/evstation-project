@@ -1,0 +1,124 @@
+{% extends 'temp/stationext.html' %}
+
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Delivery Requests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+      /* Global styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        line-height: 1.5;
+        background-color: #f2f2f2;
+      }
+      /* Header styles */
+      header {
+        background-color: #2c3e50;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      header h1 {
+          color: white;
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      header p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      /* Table styles */
+      table {
+        width: 80%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      th {
+        background-color: #2c3e50;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px;
+        text-align: left;
+        text-transform: uppercase;
+      }
+      td {
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+        vertical-align: middle;
+        font-size: 16px;
+      }
+      td:first-child {
+        font-weight: bold;
+      }
+      /* Button styles */
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #2c3e50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      .btn:hover {
+        background-color: #34495e;
+      }
+      /* Responsive styles */
+      @media screen and (max-width: 768px) {
+        table {
+          font-size: 14px;
+        }
+        th,
+        td {
+          padding: 5px;
+        }
+        .btn {
+          padding: 5px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>View Delivery Requests</h1>
+    </header>
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Location</th>
+            <th>Type</th>
+            <th>Phone</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in i %}
+          <tr>
+            <td>{{ i.u.name }}</td>
+            <td>{{ i.location }}</td>
+            <td>{{ i.type }}</td>
+            <td>{{ i.u.phone }}</td>
+            <td><a class="btn" href="{% url 'ass' idd=i.dr_id %}"><i class="fas fa-user-plus"></i> Assign</a></td>
+          </tr>
+          {% endfor %}
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

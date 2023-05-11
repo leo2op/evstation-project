@@ -1,0 +1,126 @@
+{% extends 'temp/userext.html' %}
+
+{% block base %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recharge Wallet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+
+
+                .container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+                              background-color: rgba(0,0,0,0.5);
+
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+
+    animation-name: slidein;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+
+        .container {
+            max-width: 500px;
+            margin-top: 100px;
+            padding: 40px 20px;
+            {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+
+        }
+
+
+        .title {
+            font-family: "Times New Roman";
+            font-size: 36px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .form-input {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            color:white;
+        }
+
+        .form-input input {
+            background-color: rgba(0,0,0,0.2);
+            width: 70%;
+            padding: 15px;
+            border: none;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            font-size: 18px;
+            color: white;
+        }
+
+
+
+
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 10px;
+            }
+
+            .title {
+                font-size: 30px;
+            }
+
+            .form-label {
+                font-size: 16px;
+            }
+
+            .form-input input {
+                font-size: 16px;
+            }
+
+
+        }
+    </style>
+</head>
+<body>
+    <div align="center" class="container">
+        <h1 class="title">Top-up Wallet</h1>
+        <form name="" method="post">
+            {% csrf_token %}
+            <div class="form-input">
+                <label class="form-label">Recharge Amount</label>
+                <input type="number" name="recharge" min="0" required="">
+            </div>
+            <div class="form-submit">
+                <input class="btn btn-primary py-md-3 px-md-5 mt-2" type="submit" value="Go to Payment">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}

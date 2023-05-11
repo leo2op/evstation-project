@@ -1,0 +1,107 @@
+{% extends 'temp/userext.html' %}
+
+{% block base %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Wallet</title>
+    <style>
+
+
+
+                .wallet-details {
+    padding: 20px;
+    border: 1px solid #ccc;
+    {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+                              background-color: rgba(0,0,0,0.5);
+
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+
+    animation-name: slidein;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+
+
+      .wallet-details {
+        margin-top: 100px;
+        padding: 60px;
+            {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+          background-color: rgba(0,0,0,0.5);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+
+      }
+
+      h3 {
+        margin-top: 0;
+        font-size: 24px;
+        color: white;
+        animation-name: fadeIn;
+        animation-duration: 0.5s;
+      }
+
+      table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        animation-name: fadeIn;
+        animation-duration: 0.5s;
+      }
+
+      td,
+      th {
+        padding: 10px;
+        text-align: left;
+        font-size: 16px;
+        color: white;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        font-weight: bold;
+        color: #333;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="wallet-details" align="center">
+      <h3>Wallet Summary</h3>
+      <table>
+        <tr>
+          {% for i in o %}
+          <td><strong>Username:</strong></td>
+          <td>{{ i.u.name }}</td>
+        </tr>
+        <tr>
+          <td><strong>Balance:</strong></td>
+          <td>{{ i.balance }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'temp/dboy.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assigned work</title>
+</head>
+<body>
+<center>
+<h3>View assigned work</h3>
+    </center>
+<form>
+<table border="1" align="center" cellpadding="10">
+    <tr>
+        <td>Work Id</td><td><input type="text" name="work-id" required=""></td>
+    </tr>
+    <tr>
+        <td>Station Id</td><td><input type="text" name="station-id" required=""></td>
+    </tr>
+    <tr>
+        <td>Delivery Request Id</td><td><input type="text" name="d-req-id" required=""></td>
+    </tr>
+    <tr><td>Status</td><td><input type="radio" name="status" value="finished" checked> Finished <input type="radio" name="status" value="inprogress">In Progress</td></tr>
+    <tr>
+        <td>Delivery Boy Id</td>
+        <td><input type="text" name="dboy-id"></td>
+    </tr>
+
+</table><br>
+<center>
+<input type="submit" value="Submit">
+</center>
+</form>
+</body>
+</html>
+
+{% endblock %}

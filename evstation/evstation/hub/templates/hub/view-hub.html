@@ -1,0 +1,115 @@
+{% extends 'temp/userext.html' %}
+
+{% block base %}
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Battery Units Available</title>
+      <style>
+
+                .wallet-details {
+    padding: 20px;
+    border: 1px solid #ccc;
+    {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+                              background-color: rgba(0,0,0,0.5);
+
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+
+    animation-name: slidein;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+        /* Reset styles */
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        /* Custom styles */
+        body {
+            color:white;
+          line-height: 1.5;
+        }
+
+
+        .wallet-details {
+            {#background: linear-gradient(to bottom right, #808080, #7D7D7D, #9E9E9E, #BDBDBD, #202020);#}
+          border-radius: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          margin: 20px auto;
+          max-width: 800px;
+          padding: 20px;
+          text-align: center;
+        }
+
+        .wallet-details h4 {
+          color: white;
+          margin-bottom: 20px;
+            font-family:"Times New Roman";
+        }
+
+        table {
+          border-collapse: collapse;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        th,
+        td {
+          border: 1px solid #ccc;
+          padding: 10px;
+          text-align: center;
+        }
+
+        th {
+          background-color: rgba(0,0,0,0.5);
+          font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+          background-color: rgba(255, 255, 255, 0.5);
+        }
+      </style>
+    </head>
+    <body>
+      <div class="wallet-details">
+        <h4>Swappable Battery</h4><br>
+        <table>
+          <thead>
+            <tr>
+              <th>Station</th>
+              <th>Location</th>
+              <th>Units Left</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in k %}
+            <tr>
+              <td>{{ i.s.s_name }}</td>
+              <td>{{ i.s.location }}</td>
+              <td>{{ i.units_left }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </body>
+  </html>
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends 'temp/home.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register Service Center</title>
+<style type="text/css">
+body{
+    background-image: url("/static/img/ev-station-15.webp");
+        backdrop-filter: blur(15px);
+        background-size: contain;
+    color: white;
+}
+		.signup {
+            text-align: center;
+			background-color: rgba(0, 0, 0, 0.5);
+			{#border-radius: 5px;#}
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+			margin: 20px;
+			padding: 20px;
+			max-width: 700px;
+			width: 90%;
+		}
+		.signup h1 {
+			color: #F77D0A ;
+			font-size: 32px;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+
+			text-transform: uppercase;
+		}
+		.signup h6 {
+			color: white;
+			font-size: 18px;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+
+		}
+		.signup table {
+			border-collapse: collapse;
+			margin: 20px 0;
+			width: 100%;
+		}
+		.signup td {
+			border-bottom: 1px solid #ddd;
+			padding: 10px;
+			text-align: left;
+			vertical-align: middle;
+		}
+		.signup input[type="text"], .signup input[type="password"], .signup input[type="file"] {
+            color: white;
+            border: none;
+            background-color: rgba(100, 100, 100, 0.2);
+			box-sizing: border-box;
+			font-size: 16px;
+			margin: 0;
+			padding: 10px;
+			width: 100%;
+		}
+        .signup textarea{
+            border: none;
+            color: white;
+            background-color: rgba(100, 100, 100, 0.2);
+			box-sizing: border-box;
+			font-size: 16px;
+			margin: 0;
+			padding: 10px;
+			width: 100%;
+        }
+		.signup input[type="submit"] {
+			background-color: #F77D0A;
+			border: none;
+
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+			color: #fff;
+			cursor: pointer;
+			font-size: 18px;
+			margin: 20px 0 0;
+			padding: 10px;
+			text-transform: uppercase;
+			transition: background-color 0.2s;
+			width: 100%;
+		}
+		.signup input[type="submit"]:hover {
+			background-color: #F77D0A;
+		}
+		.signup a {
+			color: #F77D0A;
+			text-decoration: none;
+		}
+
+    </style>
+  </head>
+  <body>
+<div align="center">
+        <div class="signup">
+            <h1>Service Center SignUp</h1><br>
+        <h6>Please enter your details</h6><br>
+      <form method="post">
+        {% csrf_token %}
+        <table>
+          <tr>
+            <td>Service Center name</td>
+            <td>
+              <input type="text" name="sc-name" required=""/>
+            </td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><input type="text" name="sc-email" required="@"/></td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td><input type="text" name="sc-phone" pattern="[0-9]{10}"/></td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td><textarea name="u" required=""></textarea></td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td><input type="text" name="location" required="" /></td>
+          </tr>
+            <tr>
+            <td>Certifications</td>
+            <td><input type="file" name="certification" required="" /></td>
+          </tr>
+            <tr>
+            <td>Images of Service center</td>
+            <td><input type="file" name="sc-image" required="" /></td>
+          </tr>
+
+          <tr>
+            <td>Password</td>
+            <td>
+              <input type="password" name="password" required pattern=".{8,}" />
+            </td>
+          </tr>
+
+        </table>
+        <br />
+        <input class="btn btn-primary py-md-3 px-md-5 mt-2" type="submit" name="login" value="Register" /><br />
+      </form>
+      <br />
+            Already Registered? <a href="/login/login/">Login</a>
+        </div>
+</div>
+  </body>
+</html>
+
+{% endblock %}

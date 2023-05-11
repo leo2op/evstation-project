@@ -1,0 +1,23 @@
+{% extends 'temp/dboy.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Dboy work status</title>
+</head>
+<body>
+<center>
+    <h3>
+        Update Work Ready Status
+    </h3>
+    <form name="" method="post">
+        <input type="radio" name="workstatus" value="Ready"> Ready <input type="radio" name="workstatus" value="Not ready" checked>  Not ready  <br><br>
+        <input type="submit" value="Update">
+    </form>
+</center>
+</body>
+</html>
+
+{% endblock %}

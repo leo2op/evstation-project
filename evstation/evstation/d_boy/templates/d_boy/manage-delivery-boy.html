@@ -1,0 +1,131 @@
+{% extends 'temp/adminext.html' %}
+{% block base %}
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manage Delivery boy</title>
+<style>
+    .delivery-boys-table {
+  width: 80%;
+  border-collapse: collapse;
+  border: 2px solid #e9e9e9;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.delivery-boys-table th,
+.delivery-boys-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.delivery-boys-table th {
+  background-color: #e9e9e9;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.delivery-boys-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.delivery-boys-table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.delivery-boys-table td {
+  vertical-align: middle;
+}
+
+.delivery-boys-table a {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.delivery-boys-table a:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 600px) {
+  .delivery-boys-table {
+    border: 0;
+    font-size: 12px;
+  }
+  .delivery-boys-table thead {
+    display: none;
+  }
+  .delivery-boys-table td {
+    display: block;
+    padding: 8px 15px;
+    text-align: right;
+  }
+  .delivery-boys-table td::before {
+    content: attr(data-label);
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .delivery-boys-table tbody tr {
+    margin-bottom: 10px;
+  }
+}
+
+</style>
+  </head>
+  <body>
+<div align="center" >
+    <h1>Manage Delivery Boy</h1>
+      <br />
+<table border="1" cellpadding="10" cellspacing="0" class="delivery-boys-table">
+    <tr>
+          <th>Delivery boy name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Qualification</th>
+            <th>PAN Number</th>
+          <th></th>
+          <th></th>
+        </tr>
+          {% for i in h %}
+
+
+        <tr>
+            <td>{{ i.dboy_name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.address}}</td>
+            <td>{{ i.phone }}</td>
+            <td>{{ i.gender }}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.qualification }}</td>
+            <td>{{ i.pan }}</td>
+          <td><a href="/d_boy/appr/{{ i.dboy_id }}">Approve</a></td>
+          <td><a href="/d_boy/reje/{{ i.dboy_id }}">Reject</a></td>
+        </tr>
+
+          {% endfor %}
+      </table>
+</div>
+  </body>
+</html>
+{% endblock %}
